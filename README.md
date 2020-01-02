@@ -30,8 +30,6 @@ Later example of _video game consoles_ included:
 * Neo Geo,
 * etc.
 
-* etc.
-
 Later examples of handheld video game consoles include:
 * Game Boy,
 * Atari Lynx,
