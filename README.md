@@ -51,3 +51,11 @@ but is inspired ‘real’ _video game consoles_.
 
 A **fantasy video game console computer** is similar to a **retro game console emulator**, but for a machine that never existed.
 
+## cyber80 Specification
+
+**Display**:
+* **Raster Mode**: 256×384 pixels, 16 color palette
+* **Vector Mode**: 256×384 points, 16 color palette
+
+**Input**:
+* 2 controllers each with 8-buttons
