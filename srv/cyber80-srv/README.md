@@ -1,8 +1,10 @@
 # cyber80-srv
 
-**cyber80-srv** is a tool used by the developers of **cyber80**, to make their development work easier.
+**cyber80-srv** — ‘cyber80 serve’ — is a tool used by the developers of **cyber80**, to make their development work easier.
 
 **NOTE***: _cyber80-srv_ is NOT _cyber80_.
+
+(The source code for _cyber80_ is in the `src/cyber80` directory, rather than this directory — rather than the `srv/cyber80-srv` directory.)
 
 ## Usage
 
