@@ -57,3 +57,10 @@ A **fantasy video game console computer** is similar to a **retro game console e
 
 **Input**:
 * 2 controllers each with 8-buttons
+
+## cyber80 RAM Layout
+
+| Address | Description    | Size         | Note                                                        | 
+|---------|----------------|--------------|-------------------------------------------------------------|
+| 0x0000  | Raster Display | 49,152 bytes | = 4 bits per pixel with 256×384 pixels                      |
+| 0xC000  | Pallete        | 192 bytes    | = 24 bits per RGB color in pallete with 4 bit pallete space |
