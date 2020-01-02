@@ -49,5 +49,5 @@ Current examples of _video game consoles_ includ:
 A **fantasy video game console** is a _make-believe_ _video game console_ that never actually existed,
 but is inspired ‘real’ _video game consoles_.
 
-A **fantasy console computer** is similar to a **retro game console emulator**, but for a machine that never existed.
+A **fantasy video game console computer** is similar to a **retro game console emulator**, but for a machine that never existed.
 
