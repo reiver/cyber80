@@ -68,4 +68,4 @@ A **fantasy video game console computer** is similar to a **retro game console e
 | Address | Description    | Size         | Note                                                        | 
 |---------|----------------|--------------|-------------------------------------------------------------|
 | 0x0000  | Raster Display | 12,288 bytes | = 4 bits per pixel with 128×192 pixels                      |
-| 0xC000  | Pallete        | 192 bytes    | = 24 bits per RGB color in pallete with 4 bit pallete space |
+| 0xC000  | Palette        | 192 bytes    | = 24 bits per RGB color in pallete with 4 bit pallete space |
