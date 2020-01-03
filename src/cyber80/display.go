@@ -1,6 +1,6 @@
 package main
 
 const (
-	displayWidth  = 256
-	displayHeight = 384
+	displayWidth  = 128
+	displayHeight = 192
 )
