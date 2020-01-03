@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	fmt.Println("Hello world! ⸻ cyber80")
+	fmt.Printf("Hello world! ⸻ %s\n", name)
 
 	var window js.Value
 	{
@@ -40,7 +40,7 @@ func main() {
 	var redraw func()
 	{
 		redraw = func() {
-			fmt.Printf("cyber80: redraw count: %d\n", count)
+			fmt.Printf("%s: redraw count: %d\n", name, count)
 
 			ctx.Set("fillStyle", "#002b36") // solarized base03
 			ctx.Call("fillRect", 0, 0, canvas.Get("width").Int(), canvas.Get("height").Int())
@@ -68,7 +68,7 @@ func main() {
 
 			canvas.Set("width",  newWidth)
 			canvas.Set("height", newHeight)
-			fmt.Printf("cyber80: resize (width, height) = (%d, %d)\n", newWidth, newHeight)
+			fmt.Printf("%s: resize (width, height) = (%d, %d)\n", name, newWidth, newHeight)
 
 			ctx.Call("scale", newWidth / displayWidth, newHeight / displayHeight)
 
@@ -86,9 +86,9 @@ func main() {
 	}
 
 	{
-		fmt.Println("cyber80: hanging around...\n")
+		fmt.Printf("%s: hanging around...\n", name)
 		ch := make(chan struct{})
 		<-ch
-		fmt.Println("cyber80: Goodbye · Khodafez · 안녕 · 再見")
+		fmt.Printf("%s: Goodbye · Khodafez · 안녕 · 再見\n", name)
 	}
 }
