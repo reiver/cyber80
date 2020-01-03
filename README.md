@@ -9,6 +9,11 @@ The **cyber80** was designed for:
 * teaching programming through game development, and
 * retro game development.
 
+## 80
+
+The “80” in “cyber80” stands for “1980s”.
+Which is the era that the _cyber80_ is inspired by.
+
 ## Video Game Consoles
 
 A **video game console** is a _computer_ designed primarily to be used to play video games.
