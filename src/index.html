@@ -3,14 +3,27 @@
 <head>
 <meta charset="utf-8" />
 <title>cyber80</title>
+<style>
+	body {
+		width:100%;
+		height:100%;
+		margin:0;
+		padding:0;
+		background-color:#16161d;
+		overflow:hidden;
+		display:block;
+	}
+</style>
 <script src="wasm_exec.js"></script>
 <script>
-async function init() {
-	const go = new Go();
-	let result = await WebAssembly.instantiateStreaming(fetch("cyber80/cyber80.wasm"), go.importObject)
-	go.run(result.instance);
-}
-init();
+(function() {
+	async function init() {
+		const go = new Go();
+		let result = await WebAssembly.instantiateStreaming(fetch("cyber80/cyber80.wasm"), go.importObject)
+		go.run(result.instance);
+	}
+	init();
+})()
 </script>
 </head>
 <body></body>
