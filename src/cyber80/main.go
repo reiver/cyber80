@@ -1,6 +1,8 @@
 package main
 
 import (
+	"github.com/reiver/cyber80/src/cyber80/display"
+
 	"fmt"
 	"syscall/js"
 )
@@ -23,8 +25,8 @@ func main() {
 	{
 		canvas = document.Call("createElement", "canvas")
 
-		canvas.Call("setAttribute", "width",  displayWidth)
-		canvas.Call("setAttribute", "height", displayHeight)
+		canvas.Call("setAttribute", "width",  cyber80_display.Width)
+		canvas.Call("setAttribute", "height", cyber80_display.Height)
 
 		canvas.Set("style", "position:absolute; left:0px; top:0px;")
 
@@ -60,9 +62,9 @@ func main() {
 			innerHeight := window.Get("innerHeight").Int()
 
 			newWidth := innerWidth
-			newHeight := newWidth * displayHeight / displayWidth
+			newHeight := newWidth * cyber80_display.Height / cyber80_display.Width
 			if newHeight > innerHeight {
-				newWidth  = innerHeight * displayWidth / displayHeight
+				newWidth  = innerHeight * cyber80_display.Width / cyber80_display.Height
 				newHeight = innerHeight
 			}
 
@@ -70,7 +72,7 @@ func main() {
 			canvas.Set("height", newHeight)
 			fmt.Printf("%s: resize (width, height) = (%d, %d)\n", name, newWidth, newHeight)
 
-			ctx.Call("scale", newWidth / displayWidth, newHeight / displayHeight)
+			ctx.Call("scale", float64(newWidth) / float64(cyber80_display.Width), float64(newHeight) / float64(cyber80_display.Height))
 
 			redraw()
 
