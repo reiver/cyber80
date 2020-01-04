@@ -1,5 +1,9 @@
 package cyber80_palette
 
 const (
-	Size = 24 * 16
+	colorSize = 3
+)
+
+const (
+	Size = colorSize * 16
 )
