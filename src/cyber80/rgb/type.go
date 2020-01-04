@@ -1,7 +1,11 @@
 package cyber80_rgb
 
+const (
+	r = 0
+	g = 1
+	b = 2
+)
+
 type Type struct {
-	r uint8
-	g uint8
-	b uint8
+	value [3]byte
 }
