@@ -1,6 +1,6 @@
 package cyber80_palette_color
 
-func Something(value int) Type {
+func Something(value byte) Type {
 	if value < 0 || 15 < value{
 		return Error()
 	}
