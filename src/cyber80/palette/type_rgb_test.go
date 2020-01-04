@@ -100,7 +100,7 @@ func TestTypeRGB(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		for i:=0; i<16; i++ {
+		for i:=byte(0); i<byte(16); i++ {
 
 			rgb := test.Value.RGB(i)
 
