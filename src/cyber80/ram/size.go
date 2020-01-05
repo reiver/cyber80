@@ -6,10 +6,6 @@ import (
 )
 
 const (
-	rasterDisplaySize = (cyber80_raster.Width * cyber80_raster.Height) / 2
-)
-
-const (
-	Size = rasterDisplaySize + cyber80_palette.Size
+	Size = cyber80_raster.Size + cyber80_palette.Size
 )
 
