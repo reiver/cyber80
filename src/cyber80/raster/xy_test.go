@@ -1,7 +1,7 @@
-package cyber80_display_test
+package cyber80_raster_test
 
 import (
-	"github.com/reiver/cyber80/src/cyber80/display"
+	"github.com/reiver/cyber80/src/cyber80/raster"
 
 	"testing"
 )
@@ -528,58 +528,58 @@ func TestXY(t *testing.T) {
 
 
 		{
-			I: (cyber80_display.Size-8),
-			ExpectedX1: (cyber80_display.Width-16),
-			ExpectedX2: (cyber80_display.Width-15),
-			ExpectedY:  (cyber80_display.Height-1),
+			I: (cyber80_raster.Size-8),
+			ExpectedX1: (cyber80_raster.Width-16),
+			ExpectedX2: (cyber80_raster.Width-15),
+			ExpectedY:  (cyber80_raster.Height-1),
 		},
 		{
-			I: (cyber80_display.Size-7),
-			ExpectedX1: (cyber80_display.Width-14),
-			ExpectedX2: (cyber80_display.Width-13),
-			ExpectedY:  (cyber80_display.Height-1),
+			I: (cyber80_raster.Size-7),
+			ExpectedX1: (cyber80_raster.Width-14),
+			ExpectedX2: (cyber80_raster.Width-13),
+			ExpectedY:  (cyber80_raster.Height-1),
 		},
 		{
-			I: (cyber80_display.Size-6),
-			ExpectedX1: (cyber80_display.Width-12),
-			ExpectedX2: (cyber80_display.Width-11),
-			ExpectedY:  (cyber80_display.Height-1),
+			I: (cyber80_raster.Size-6),
+			ExpectedX1: (cyber80_raster.Width-12),
+			ExpectedX2: (cyber80_raster.Width-11),
+			ExpectedY:  (cyber80_raster.Height-1),
 		},
 		{
-			I: (cyber80_display.Size-5),
-			ExpectedX1: (cyber80_display.Width-10),
-			ExpectedX2: (cyber80_display.Width-9),
-			ExpectedY:  (cyber80_display.Height-1),
+			I: (cyber80_raster.Size-5),
+			ExpectedX1: (cyber80_raster.Width-10),
+			ExpectedX2: (cyber80_raster.Width-9),
+			ExpectedY:  (cyber80_raster.Height-1),
 		},
 		{
-			I: (cyber80_display.Size-4),
-			ExpectedX1: (cyber80_display.Width-8),
-			ExpectedX2: (cyber80_display.Width-7),
-			ExpectedY:  (cyber80_display.Height-1),
+			I: (cyber80_raster.Size-4),
+			ExpectedX1: (cyber80_raster.Width-8),
+			ExpectedX2: (cyber80_raster.Width-7),
+			ExpectedY:  (cyber80_raster.Height-1),
 		},
 		{
-			I: (cyber80_display.Size-3),
-			ExpectedX1: (cyber80_display.Width-6),
-			ExpectedX2: (cyber80_display.Width-5),
-			ExpectedY:  (cyber80_display.Height-1),
+			I: (cyber80_raster.Size-3),
+			ExpectedX1: (cyber80_raster.Width-6),
+			ExpectedX2: (cyber80_raster.Width-5),
+			ExpectedY:  (cyber80_raster.Height-1),
 		},
 		{
-			I: (cyber80_display.Size-2),
-			ExpectedX1: (cyber80_display.Width-4),
-			ExpectedX2: (cyber80_display.Width-3),
-			ExpectedY:  (cyber80_display.Height-1),
+			I: (cyber80_raster.Size-2),
+			ExpectedX1: (cyber80_raster.Width-4),
+			ExpectedX2: (cyber80_raster.Width-3),
+			ExpectedY:  (cyber80_raster.Height-1),
 		},
 		{
-			I: (cyber80_display.Size-1),
-			ExpectedX1: (cyber80_display.Width-2),
-			ExpectedX2: (cyber80_display.Width-1),
-			ExpectedY:  (cyber80_display.Height-1),
+			I: (cyber80_raster.Size-1),
+			ExpectedX1: (cyber80_raster.Width-2),
+			ExpectedX2: (cyber80_raster.Width-1),
+			ExpectedY:  (cyber80_raster.Height-1),
 		},
 	}
 
 	for testNumber, test := range tests {
 
-		actualX1, actualX2, actualY := cyber80_display.XY(test.I)
+		actualX1, actualX2, actualY := cyber80_raster.XY(test.I)
 
 		if expected, actual := test.ExpectedX1, actualX1; expected != actual {
 			t.Errorf("For test #%d, actual x₁ is not what was expected.", testNumber)

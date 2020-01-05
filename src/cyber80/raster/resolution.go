@@ -1,4 +1,4 @@
-package cyber80_display
+package cyber80_raster
 
 const (
 	Width  = 128

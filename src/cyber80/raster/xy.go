@@ -1,4 +1,4 @@
-package cyber80_display
+package cyber80_raster
 
 func XY(i int) (x1 int, x2 int, y int) {
 	xs := i % (Width/2)
