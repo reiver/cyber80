@@ -9,29 +9,121 @@ import (
 func TestIndex(t *testing.T) {
 
 	tests := []struct{
-		X int
-		Y int
+		X  int
+		Y  int
+		BP int
 		Expected int
 	}{
 		{
 			X:          0,
 			Y:          0,
+			BP:         0,
 			Expected:   0,
 		},
 		{
 			X:          1,
 			Y:          0,
+			BP:         0,
 			Expected:   1,
 		},
 		{
 			X:          2,
 			Y:          0,
+			BP:         0,
 			Expected:   2,
 		},
 		{
 			X:          3,
 			Y:          0,
+			BP:         0,
 			Expected:   3,
+		},
+
+
+
+		{
+			X:          0,
+			Y:          0,
+			BP:         1,
+			Expected:   1,
+		},
+		{
+			X:          1,
+			Y:          0,
+			BP:         1,
+			Expected:   2,
+		},
+		{
+			X:          2,
+			Y:          0,
+			BP:         1,
+			Expected:   3,
+		},
+		{
+			X:          3,
+			Y:          0,
+			BP:         1,
+			Expected:   4,
+		},
+
+
+
+		{
+			X:          0,
+			Y:          0,
+			BP:       200,
+			Expected: 200,
+		},
+		{
+			X:          1,
+			Y:          0,
+			BP:       200,
+			Expected: 201,
+		},
+		{
+			X:          2,
+			Y:          0,
+			BP:       200,
+			Expected: 202,
+		},
+		{
+			X:          3,
+			Y:          0,
+			BP:       200,
+			Expected: 203,
+		},
+
+
+
+
+
+
+
+
+
+		{
+			X:        124,
+			Y:          0,
+			BP:         0,
+			Expected: 124,
+		},
+		{
+			X:        125,
+			Y:          0,
+			BP:         0,
+			Expected: 125,
+		},
+		{
+			X:        126,
+			Y:          0,
+			BP:         0,
+			Expected: 126,
+		},
+		{
+			X:        127,
+			Y:          0,
+			BP:         0,
+			Expected: 127,
 		},
 
 
@@ -39,44 +131,85 @@ func TestIndex(t *testing.T) {
 		{
 			X:        124,
 			Y:          0,
-			Expected: 124,
-		},
-		{
-			X:        125,
-			Y:        0,
+			BP:         1,
 			Expected: 125,
 		},
 		{
-			X:        126,
-			Y:        0,
+			X:        125,
+			Y:          0,
+			BP:         1,
 			Expected: 126,
 		},
 		{
-			X:        127,
-			Y:        0,
+			X:        126,
+			Y:          0,
+			BP:         1,
 			Expected: 127,
+		},
+		{
+			X:        127,
+			Y:          0,
+			BP:         1,
+			Expected: 128,
 		},
 
 
 
 		{
-			X:        0,
-			Y:        1,
+			X:        124,
+			Y:          0,
+			BP:       200,
+			Expected: 324,
+		},
+		{
+			X:        125,
+			Y:          0,
+			BP:       200,
+			Expected: 325,
+		},
+		{
+			X:        126,
+			Y:          0,
+			BP:       200,
+			Expected: 326,
+		},
+		{
+			X:        127,
+			Y:          0,
+			BP:       200,
+			Expected: 327,
+		},
+
+
+
+
+
+
+
+
+
+		{
+			X:          0,
+			Y:          1,
+			BP:         0,
 			Expected: 128,
 		},
 		{
-			X:        1,
-			Y:        1,
+			X:          1,
+			Y:          1,
+			BP:         0,
 			Expected: 129,
 		},
 		{
-			X:        2,
-			Y:        1,
+			X:          2,
+			Y:          1,
+			BP:         0,
 			Expected: 130,
 		},
 		{
-			X:        3,
-			Y:        1,
+			X:          3,
+			Y:          1,
+			BP:         0,
 			Expected: 131,
 		},
 
@@ -84,45 +217,53 @@ func TestIndex(t *testing.T) {
 
 		{
 			X:        124,
-			Y:        1,
+			Y:          1,
+			BP:         0,
 			Expected: 252,
 		},
 		{
 			X:        125,
-			Y:        1,
+			Y:          1,
+			BP:         0,
 			Expected: 253,
 		},
 		{
 			X:        126,
-			Y:        1,
+			Y:          1,
+			BP:         0,
 			Expected: 254,
 		},
 		{
 			X:        127,
-			Y:        1,
+			Y:          1,
+			BP:         0,
 			Expected: 255,
 		},
 
 
 
 		{
-			X:        0,
-			Y:        2,
+			X:          0,
+			Y:          2,
+			BP:         0,
 			Expected: 256,
 		},
 		{
-			X:        1,
-			Y:        2,
+			X:          1,
+			Y:          2,
+			BP:         0,
 			Expected: 257,
 		},
 		{
-			X:        2,
-			Y:        2,
+			X:          2,
+			Y:          2,
+			BP:         0,
 			Expected: 258,
 		},
 		{
-			X:        3,
-			Y:        2,
+			X:          3,
+			Y:          2,
+			BP:         0,
 			Expected: 259,
 		},
 
@@ -198,7 +339,7 @@ func TestIndex(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		index := cyber80_raster.Index(test.X, test.Y)
+		index := cyber80_raster.Index(test.X, test.Y, test.BP)
 
 		if expected, actual := test.Expected, index; expected != actual {
 			t.Errorf("For test #%d, the excepted ‘index’ was not what was actually gotten.", testNumber)
