@@ -12,7 +12,13 @@ import (
 //
 // Example
 //
+// If the following is executed:
+//
 //	log("Hello world!")
+//
+// Then the output will be:
+//
+//	cyber80: Hello world!
 func log(a ...interface{}) {
 
 	var builder strings.Builder
@@ -31,9 +37,15 @@ func log(a ...interface{}) {
 //
 // Example
 //
+// If the following is executed:
+//
 //	var name = "Joe Blow"
 //
 //	logf("Hello %s!", name)
+//
+// Then the output will be:
+//
+//	cyber80: Hello Joe Blow!
 func logf(format string, a ...interface{}) {
 
 	var builder strings.Builder
