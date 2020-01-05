@@ -42,12 +42,12 @@ To write at the 5th memory location of the raster display memory one could do so
 	cyber80_ram.Value[index] = 0x0b
 
 Although, since most people want to think is terms of (x,y) coordinates when dealing with pixels the raster display memory,
-one could use the cyber80_raster.XY() helper. For example:
+one could use the cyber80_raster.Index() helper. For example:
 
 	x := 8
 	y : 16
 	
-	index := cyber80_ram.BPRaster + cyber80_raster.XY(x, y)
+	index := cyber80_ram.BPRaster + cyber80_index.Index(x, y)
 	
 	cyber80_ram.Value[index] = 0x0b
 */
