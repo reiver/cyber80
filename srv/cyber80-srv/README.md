@@ -26,4 +26,4 @@ And then, in a web browser on the same computer, go to:
 A human would just go to:
 * http://localhost:8080/
 
-And `wasm_exec.js` and `cyber80/cyber80.wasm` automatically be downloaded and pulled-in behind-the-scenes.
+And `wasm_exec.js` and `cyber80/cyber80.wasm` will be automatically downloaded and pulled-in behind-the-scenes.
