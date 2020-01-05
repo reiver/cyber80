@@ -47,7 +47,7 @@ one could use the cyber80_raster.XY() helper. For example:
 	x := 8
 	y : 16
 	
-	index := cyber80_raster.XY(x, y)
+	index := cyber80_ram.BPRaster + cyber80_raster.XY(x, y)
 	
 	cyber80_ram.Value[index] = 0x0b
 */
