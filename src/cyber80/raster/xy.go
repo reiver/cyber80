@@ -1,11 +1,6 @@
 package cyber80_raster
 
-func XY(i int) (x1 int, x2 int, y int) {
-	xs := i % (Width/2)
-	y  = i / (Width/2)
-
-	x1 = xs*2
-	x2 = x1 + 1
-
+func XY(i int) (x int, y int) {
+	x, y = i % Width, i / Width
 	return
 }
