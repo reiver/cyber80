@@ -65,7 +65,7 @@ A **fantasy video game console computer** is similar to a **retro game console e
 
 ## cyber80 RAM Layout
 
-| Address | Description    | Size         | Note                                                        | 
-|---------|----------------|--------------|-------------------------------------------------------------|
-| 0x0000  | Raster Display | 12,288 bytes | = 4 bits per pixel with 128×192 pixels                      |
-| 0xC000  | Palette        | 192 bytes    | = 24 bits per RGB color in pallete with 4 bit pallete space |
+| Address | Description    | Size         | Note                                                                          |
+|---------|----------------|--------------|-------------------------------------------------------------------------------|
+| 0x0000  | Raster Display | 24,576 bytes | = 128×192 pixels with 1 byte per pixel; only lower 4 bits of each byte matter |
+| 0xC000  | Palette        | 192 bytes    | = 24 bits per RGB color in pallete with 4 bit pallete space                   |
