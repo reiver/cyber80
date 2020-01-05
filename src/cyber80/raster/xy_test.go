@@ -129,6 +129,52 @@ func TestXY(t *testing.T) {
 
 
 		{
+			I: (cyber80_raster.Size-cyber80_raster.Width-4),
+			ExpectedX:             (cyber80_raster.Width-4),
+			ExpectedY: (cyber80_raster.Height-2),
+		},
+		{
+			I: (cyber80_raster.Size-cyber80_raster.Width-3),
+			ExpectedX:             (cyber80_raster.Width-3),
+			ExpectedY: (cyber80_raster.Height-2),
+		},
+		{
+			I: (cyber80_raster.Size-cyber80_raster.Width-2),
+			ExpectedX:             (cyber80_raster.Width-2),
+			ExpectedY: (cyber80_raster.Height-2),
+		},
+		{
+			I: (cyber80_raster.Size-cyber80_raster.Width-1),
+			ExpectedX:             (cyber80_raster.Width-1),
+			ExpectedY: (cyber80_raster.Height-2),
+		},
+
+
+
+		{
+			I: (cyber80_raster.Size-cyber80_raster.Width+0),
+			ExpectedX:                                   0,
+			ExpectedY: (cyber80_raster.Height-1),
+		},
+		{
+			I: (cyber80_raster.Size-cyber80_raster.Width+1),
+			ExpectedX:                                   1,
+			ExpectedY: (cyber80_raster.Height-1),
+		},
+		{
+			I: (cyber80_raster.Size-cyber80_raster.Width+2),
+			ExpectedX:                                   2,
+			ExpectedY: (cyber80_raster.Height-1),
+		},
+		{
+			I: (cyber80_raster.Size-cyber80_raster.Width+3),
+			ExpectedX:                                   3,
+			ExpectedY: (cyber80_raster.Height-1),
+		},
+
+
+
+		{
 			I:          (cyber80_raster.Size-4),
 			ExpectedX: (cyber80_raster.Width-4),
 			ExpectedY: (cyber80_raster.Height-1),
