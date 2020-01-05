@@ -6,6 +6,7 @@ import (
 )
 
 const (
+	// The size of RAM in bytes.
 	Size = cyber80_raster.Size + cyber80_palette.Size
 )
 
