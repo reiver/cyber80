@@ -35,6 +35,21 @@ func TestTypeFormat(t *testing.T) {
 			Format:   "#%x",
 			Expected: "#000000",
 		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0x00,0x00,0x00}),
+			Format:   "%X",
+			Expected: "000000",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0x00,0x00,0x00}),
+			Format:   "0x%X",
+			Expected: "0x000000",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0x00,0x00,0x00}),
+			Format:   "#%X",
+			Expected: "#000000",
+		},
 
 
 
@@ -56,6 +71,21 @@ func TestTypeFormat(t *testing.T) {
 		{
 			RGB: cyber80_rgb.Bytes([]byte{0x01,0x23,0x45}),
 			Format:   "#%x",
+			Expected: "#012345",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0x01,0x23,0x45}),
+			Format:   "%X",
+			Expected: "012345",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0x01,0x23,0x45}),
+			Format:   "0x%X",
+			Expected: "0x012345",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0x01,0x23,0x45}),
+			Format:   "#%X",
 			Expected: "#012345",
 		},
 
@@ -81,6 +111,21 @@ func TestTypeFormat(t *testing.T) {
 			Format:   "#%x",
 			Expected: "#abcdef",
 		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0xab,0xcd,0xef}),
+			Format:   "%X",
+			Expected: "ABCDEF",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0xab,0xcd,0xef}),
+			Format:   "0x%X",
+			Expected: "0xABCDEF",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0xab,0xcd,0xef}),
+			Format:   "#%X",
+			Expected: "#ABCDEF",
+		},
 
 
 
@@ -103,6 +148,21 @@ func TestTypeFormat(t *testing.T) {
 			RGB: cyber80_rgb.Bytes([]byte{0xff,0xff,0xff}),
 			Format:   "#%x",
 			Expected: "#ffffff",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0xff,0xff,0xff}),
+			Format:   "%X",
+			Expected: "FFFFFF",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0xff,0xff,0xff}),
+			Format:   "0x%X",
+			Expected: "0xFFFFFF",
+		},
+		{
+			RGB: cyber80_rgb.Bytes([]byte{0xff,0xff,0xff}),
+			Format:   "#%X",
+			Expected: "#FFFFFF",
 		},
 	}
 
