@@ -1,57 +1,117 @@
 package main
 
 import (
-	"github.com/reiver/cyber80/src/cyber80/display"
+	"github.com/reiver/cyber80/src/cyber80/palette"
+	"github.com/reiver/cyber80/src/cyber80/ram"
+	"github.com/reiver/cyber80/src/cyber80/raster"
 
 	"fmt"
 	"syscall/js"
 )
 
 func main() {
+	defer func() {
+		if r := recover(); nil != r {
+			log("CRASHED! 💀")
+			logf("DEBUG: (%T) %#v", r, r)
+		}
+	}()
 
-	fmt.Printf("Hello world! ⸻ %s\n", name)
+	log("Hello world!")
+	logf("raster resolution: %d×%d", cyber80_raster.Width, cyber80_raster.Height)
+	logf("RAM size: %d", cyber80_ram.Size)
 
 	var window js.Value
 	{
 		window = js.Global()
+
+		if js.Null() == window {
+			log("ERROR: ‘window’ is null")
+			return
+		}
+		if js.Undefined() == window {
+			log("ERROR: ‘window’ is undefined")
+			return
+		}
 	}
 
 	var document js.Value
 	{
 		document = js.Global().Get("document")
+
+		if js.Null() == document {
+			log("ERROR: ‘document’ is null")
+			return
+		}
+		if js.Undefined() == document {
+			log("ERROR: ‘document’ is undefined")
+			return
+		}
 	}
 
 	var canvas js.Value
 	{
 		canvas = document.Call("createElement", "canvas")
 
-		canvas.Call("setAttribute", "width",  cyber80_display.Width)
-		canvas.Call("setAttribute", "height", cyber80_display.Height)
+		if js.Null() == canvas {
+			log("ERROR: ‘canvas’ is null")
+			return
+		}
+		if js.Undefined() == canvas {
+			log("ERROR: ‘canvas’ is undefined")
+			return
+		}
+	}
+
+	var ctx js.Value
+	{
+		ctx = canvas.Call("getContext", "2d")
+
+		if js.Null() == ctx {
+			log("ERROR: ‘ctx’ is null")
+			return
+		}
+		if js.Undefined() == ctx {
+			log("ERROR: ‘ctx’ is undefined")
+			return
+		}
+	}
+
+	// Set up display.
+	{
+		canvas.Call("setAttribute", "width",  cyber80_raster.Width)
+		canvas.Call("setAttribute", "height", cyber80_raster.Height)
 
 		canvas.Set("style", "position:absolute; left:0px; top:0px;")
 
 		document.Get("body").Call("appendChild", canvas)
 	}
 
-	var ctx js.Value
-	{
-		ctx = canvas.Call("getContext", "2d")
-	}
+	// Splash
+	splash()
 
-	var count int
 	var redraw func()
 	{
 		redraw = func() {
-			fmt.Printf("%s: redraw count: %d\n", name, count)
 
-			ctx.Set("fillStyle", "#002b36") // solarized base03
-			ctx.Call("fillRect", 0, 0, canvas.Get("width").Int(), canvas.Get("height").Int())
+			palette := cyber80_ram.Value.Palette()
 
-			msg := fmt.Sprintf("Hello world! ⸻ %d", count)
-			count++
+			var colors [cyber80_palette.Count]string
+			for i:=byte(0); i<cyber80_palette.Count; i++ {
+				rgb := palette.RGB(i)
+				colors[i] = fmt.Sprintf("#%x", rgb)
+				//logf("palette colors[%d] = %q", i, colors[i])
+			}
 
-			ctx.Set("fillStyle", "#dc322f") // solarized red
-			ctx.Call("fillText", msg, 10, 10)
+			{
+				for i:=0; i<cyber80_raster.Size; i++ {
+					value := cyber80_ram.Value[i]
+					x, y := cyber80_raster.XY(i)
+
+					ctx.Set("fillStyle", colors[value & 0x0f])
+					ctx.Call("fillRect", x, y, 1, 1)
+				}
+			}
 		}
 	}
 
@@ -62,17 +122,18 @@ func main() {
 			innerHeight := window.Get("innerHeight").Int()
 
 			newWidth := innerWidth
-			newHeight := newWidth * cyber80_display.Height / cyber80_display.Width
+			newHeight := newWidth * cyber80_raster.Height / cyber80_raster.Width
 			if newHeight > innerHeight {
-				newWidth  = innerHeight * cyber80_display.Width / cyber80_display.Height
+				newWidth  = innerHeight * cyber80_raster.Width / cyber80_raster.Height
 				newHeight = innerHeight
 			}
 
+			logf("resize to (width, height) = (%d, %d)", newWidth, newHeight)
+
 			canvas.Set("width",  newWidth)
 			canvas.Set("height", newHeight)
-			fmt.Printf("%s: resize (width, height) = (%d, %d)\n", name, newWidth, newHeight)
 
-			ctx.Call("scale", float64(newWidth) / float64(cyber80_display.Width), float64(newHeight) / float64(cyber80_display.Height))
+			ctx.Call("scale", float64(newWidth) / float64(cyber80_raster.Width), float64(newHeight) / float64(cyber80_raster.Height))
 
 			redraw()
 
@@ -88,9 +149,9 @@ func main() {
 	}
 
 	{
-		fmt.Printf("%s: hanging around...\n", name)
+		log("I am alive.")
 		ch := make(chan struct{})
 		<-ch
-		fmt.Printf("%s: Goodbye · Khodafez · 안녕 · 再見\n", name)
+		log("Goodbye · Khodafez · 안녕 · 再見")
 	}
 }
