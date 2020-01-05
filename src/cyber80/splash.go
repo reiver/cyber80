@@ -5,6 +5,7 @@ import (
 	"github.com/reiver/cyber80/src/cyber80/raster"
 )
 
+// splash creates a (specific) splash-screen on the cyber80's raster display.
 func splash() {
 	const top = 40
 	const left = 16
@@ -23,6 +24,7 @@ func splash() {
 	key(left+82, top+18)
 }
 
+// face is used by splash().
 func face(u int, v int) {
 
 	//                                       0
@@ -99,6 +101,7 @@ func face(u int, v int) {
 
 }
 
+// bot is used by splash().
 func bot(u int, v int) {
 	cyber80_ram.Value[cyber80_raster.Index(u+3, v+0)] = 0x07
 
@@ -151,6 +154,7 @@ func bot(u int, v int) {
 	cyber80_ram.Value[cyber80_raster.Index(u+5, v+8)] = 0x07
 }
 
+// botLeft is used by splash().
 func botLeft(u int, v int) {
 	//                                       0
 	//                                       1
@@ -234,6 +238,7 @@ func botLeft(u int, v int) {
 	//                                       7
 }
 
+// key is used by splash().
 func key(u int, v int) {
 
 	cyber80_ram.Value[cyber80_raster.Index(u+5, v+6)] = 0x07
@@ -259,6 +264,7 @@ func key(u int, v int) {
 	cyber80_ram.Value[cyber80_raster.Index(u+7, v+8)] = 0x07
 }
 
+// man is used by splash().
 func man(u int, v int) {
 
 	cyber80_ram.Value[cyber80_raster.Index(u+0, v+0)] = 0x07
