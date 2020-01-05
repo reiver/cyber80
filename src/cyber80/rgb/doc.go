@@ -1,6 +1,19 @@
 /*
 Package cyber80_rgb provides tools working with 3-byte — i.e., 24-bit — RGB colors.
 
+Most likely you will be using this via the cyber80_palette package's cyber80_palette.Type's .RGB() method.
+For example:
+
+	import "github.com/reiver/cyber80/src/cyber80/palette"
+	
+	// ...
+	
+	var palette cyber80_palette.Type
+	
+	// ...
+	
+	rgb := palette.RGB(12) // Get the RGB value for the 12 color in the color palette.
+
 Creation
 
 One way of creating a cyber80_rgb.Type is:
