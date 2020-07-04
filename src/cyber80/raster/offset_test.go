@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestIndex(t *testing.T) {
+func TestOffset(t *testing.T) {
 
 	tests := []struct{
 		X  int
@@ -339,10 +339,10 @@ func TestIndex(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		index := cyber80_raster.Index(test.X, test.Y, test.BP)
+		offset := cyber80_raster.Offset(test.X, test.Y, test.BP)
 
-		if expected, actual := test.Expected, index; expected != actual {
-			t.Errorf("For test #%d, the excepted ‘index’ was not what was actually gotten.", testNumber)
+		if expected, actual := test.Expected, offset; expected != actual {
+			t.Errorf("For test #%d, the excepted ‘offset’ was not what was actually gotten.", testNumber)
 			t.Logf("EXPECTED: (x=%d, y=%d) -> %d", test.X, test.Y, expected)
 			t.Logf("ACTUAL:   (x=%d, y=%d) -> %d", test.X, test.Y, actual)
 			continue
