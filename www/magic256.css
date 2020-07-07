@@ -1,0 +1,28 @@
+html,body {
+	margin:0;
+	padding:0;
+}
+html,body {
+	background-color: #16161d;
+}
+
+
+
+	canvas.c80 {
+		image-rendering: -moz-crisp-edges;
+		image-rendering: -webkit-crisp-edges;
+		image-rendering: pixelated;
+		image-rendering: crisp-edges;
+	}
+	canvas.c80 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	canvas.c80 {
+		border: 0.11557vh solid #404040;
+	}
+	canvas.c80 {
+		height:90vh;
+	}		
