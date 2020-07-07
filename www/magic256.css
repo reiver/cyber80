@@ -8,21 +8,21 @@ html,body {
 
 
 
-	canvas.c80 {
+	canvas.magic256 {
 		image-rendering: -moz-crisp-edges;
 		image-rendering: -webkit-crisp-edges;
 		image-rendering: pixelated;
 		image-rendering: crisp-edges;
 	}
-	canvas.c80 {
+	canvas.magic256 {
 		position: absolute;
-		top: 50%;
+		top:  50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
-	canvas.c80 {
+	canvas.magic256 {
 		border: 0.11557vh solid #404040;
 	}
-	canvas.c80 {
+	canvas.magic256 {
 		height:90vh;
 	}		
