@@ -41,11 +41,12 @@
 	}
 
 	const imageData = ctx.getImageData(0, 0, width, height);
-	const buf = new ArrayBuffer(imageData.data.length);
-	const buf8 = new Uint8ClampedArray(buf);
-	const data = new Uint32Array(buf);
+	const arrayBuffer = new ArrayBuffer(imageData.data.length);
+	const uint8ClampedArray = new Uint8ClampedArray(arrayBuffer);
 
 	function drawNoise(buffer) {
+
+		const data = new Uint32Array(buffer);
 
 		for (var y = 0; y < height; ++y) {
 			for (var x = 0; x < width; ++x) {
@@ -62,7 +63,7 @@
 					(green <<  8) |  // green
 					 red;            // red
 
-				buffer[y * width + x] = rgba;
+				data[y * width + x] = rgba;
 
 			}
 		}
@@ -75,9 +76,9 @@
 		// MAGIC FUNCTION: window._next
 		const fn = window._next || drawNoise;
 
-		fn(data);
+		fn(arrayBuffer);
 
-		imageData.data.set(buf8);
+		imageData.data.set(uint8ClampedArray);
 		ctx.putImageData(imageData,0,0);
 
 		requestAnimationFrame(draw);
