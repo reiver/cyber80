@@ -12,7 +12,7 @@
 	(function() {
 		async function init() {
 			const go = new Go();
-			let result = await WebAssembly.instantiateStreaming(fetch("cartridge.wasm"), go.importObject);
+			let result = await WebAssembly.instantiateStreaming(fetch("magic256.wasm"), go.importObject);
 			go.run(result.instance);
 		}
 		init();
