@@ -17,25 +17,26 @@
 })();
 
 (function(){
-
-	const canvasid = "v";
-
-	const canvas = document.getElementById(canvasid);
+	const canvas = document.createElement("canvas")
 	if (!canvas) {
-		console.log("could not find <canvas> with id:", canvasid);
+		console.log("could not create <canvas>");
 		return;
 	}
+	canvas.setAttribute("class", "magic256");
 
 	const width  = 256;
 	const height = 256;
 
 	canvas.setAttribute("width", width);
 	canvas.setAttribute("height", height);
+
+	document.body.appendChild(canvas);
+
 	document.title = document.title+": "+width+"×"+height;
 
 	const ctx = canvas.getContext("2d");
 	if (!ctx) {
-		console.log("could get context from <canvas> with id:", canvasid);
+		console.log("could get context from <canvas>");
 		return;
 	}
 
@@ -43,7 +44,6 @@
 	const buf = new ArrayBuffer(imageData.data.length);
 	const buf8 = new Uint8ClampedArray(buf);
 	const data = new Uint32Array(buf);
-
 
 	function drawNoise(buffer) {
 
