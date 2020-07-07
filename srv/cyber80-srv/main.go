@@ -8,7 +8,7 @@ import (
 
 const (
 	defaultHttpPort = uint16(8080)
-	defaultRootPath  = "../../src/"
+	defaultRootPath  = "../../www/"
 )
 
 func main() {
