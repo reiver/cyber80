@@ -1,4 +1,8 @@
 (function(){
+	console.log("magic256: Hello world!")
+})();
+
+(function(){
 
 	window.requestAnimationFrame = window.requestAnimationFrame
 	                            || window.mozRequestAnimationFrame
@@ -79,4 +83,8 @@
 		requestAnimationFrame(draw);
 	}
 	requestAnimationFrame(draw);
+})();
+
+(function(){
+	console.log("magic256: I am alive!")
 })();
