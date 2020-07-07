@@ -25,7 +25,7 @@
 	canvas.setAttribute("class", "magic256");
 
 	const width  = 256;
-	const height = 256;
+	const height = 256+32;
 
 	canvas.setAttribute("width", width);
 	canvas.setAttribute("height", height);
