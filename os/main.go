@@ -60,6 +60,7 @@ func main() {
 		}
 	}
 
+//@TODO: Should this be hardcoded like this.
 	var memory [256*256*4]byte
 
 	var next func(this js.Value, args []js.Value) interface{}
