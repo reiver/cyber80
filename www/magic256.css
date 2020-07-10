@@ -5,7 +5,9 @@ html,body {
 html,body {
 	background-color: #16161d;
 }
-
+html,body {
+	font-family: monospace;
+}
 
 
 	canvas.magic256 {
@@ -26,3 +28,51 @@ html,body {
 	canvas.magic256 {
 		height:90vh;
 	}		
+
+
+
+	.tabbed {
+		overflow: hidden;
+		background-color: white;
+	}
+
+	.tabbed > div > input[type="radio"] {
+		display:none;
+	}
+
+	.tabbed > div > section {
+		display:none;
+	}
+
+	.tabbed > div > label {
+		background-color: inherit;
+		float: left;
+		border: none;
+		border-right: 1px solid #dddddd;
+		outline: none;
+		cursor: pointer;
+		padding: 1em 1.5em;
+		transition: 0.3s;
+		font-size:200%;
+
+		text-align:center;
+		min-width:6em;
+	}
+
+	.tabbed > div > label:hover {
+		background-color: #ddd;
+	}
+
+	.tabbed > div > input[type="radio"]:checked ~ label {
+		background-color: #29ADFF;
+		color:white;
+	}
+
+	.tabbed > div > input[type="radio"]:checked ~ section {
+		display:block;
+
+		position: absolute;
+		top:  50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
