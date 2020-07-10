@@ -32,9 +32,8 @@ html,body {
 
 
 	textarea.magic256, .CodeMirror {
-		min-width:5in;
-		max-width:10.5in;
-		height:90vh;
+		min-width:8.5in;
+		min-height:90vh;
 	}
 
 
