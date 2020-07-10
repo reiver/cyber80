@@ -1,11 +1,26 @@
 <!doctype html>
 <html>
-<title>magic256</title>
 <head>
+	<title>magic256</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="magic256.css" />
 </head>
 <body>
+	<div class="tabbed">
+		<div>
+			<input  id="tab-code" type="radio" name="tabs" checked="true" />
+			<label for="tab-code">Code</label>
+			<section>
+				<textarea></textarea>
+			</section>
+		</div>
+
+		<div>
+			<input  id="tab-run"type="radio" name="tabs" />
+			<label for="tab-run" >Run</label>
+			<section><canvas></canvas></section>
+		</div>
+	</div>
 	<script src="magic256.js"></script>
 	<script src="wasm_exec.js"></script>
 	<script>

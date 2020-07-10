@@ -17,9 +17,16 @@
 })();
 
 (function(){
-	const canvas = document.createElement("canvas")
+
+	const canvases = document.getElementsByTagName("canvas")
+	if (!canvases) {
+		console.log("cannot find any <canvas> elements.");
+		return;
+	}
+
+	const canvas = canvases[0];
 	if (!canvas) {
-		console.log("could not create <canvas>");
+		console.log("could not get <canvas>");
 		return;
 	}
 	canvas.setAttribute("class", "magic256");
@@ -30,9 +37,21 @@
 	canvas.setAttribute("width", width);
 	canvas.setAttribute("height", height);
 
-	document.body.appendChild(canvas);
-
 	document.title = document.title+": "+width+"×"+height;
+
+	const textareas = document.getElementsByTagName("textarea")
+	if (!textareas) {
+		console.log("cannot find any <textarea> elements.");
+		return;
+	}
+
+	const textarea = textareas[0];
+	if (!textarea) {
+		console.log("could not get <textarea>");
+		return;
+	}
+	textarea.setAttribute("class", "magic256");
+	textarea.value = "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc main() {\n\tfmt.Println(\"Hello world!\")\n}\n";
 
 	const ctx = canvas.getContext("2d");
 	if (!ctx) {
