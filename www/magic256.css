@@ -38,8 +38,9 @@ html,body {
 
 
 	.tabbed {
-		overflow: hidden;
-		background-color: white;
+		background-color:white;
+		float:left;
+		height:100vh;
 	}
 
 	.tabbed > div > input[type="radio"] {
@@ -51,18 +52,15 @@ html,body {
 	}
 
 	.tabbed > div > label {
-		background-color: inherit;
-		float: left;
-		border: none;
-		border-right: 1px solid #dddddd;
-		outline: none;
-		cursor: pointer;
-		padding: 1em 1.5em;
-		transition: 0.3s;
+		display:block;
+		background-color:inherit;
+		border:none;
+		outline:none;
+		cursor:pointer;
+		padding:1em 1.5em;
+		transition:0.3s;
 		font-size:200%;
-
 		text-align:center;
-		min-width:6em;
 	}
 
 	.tabbed > div > label:hover {
