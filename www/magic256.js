@@ -8,12 +8,12 @@
 	                            || window.mozRequestAnimationFrame
 	                            || window.webkitRequestAnimationFrame
 	                            || window.msRequestAnimationFrame
-	                            || function(f){return setTimeout(f, 1000/60)}
+	                            || function(f){return setTimeout(f, 1000/60)};
 
 
 	window.cancelAnimationFrame = window.cancelAnimationFrame
 	                           || window.mozCancelAnimationFrame
-	                           || function(requestID){clearTimeout(requestID)}
+	                           || function(requestID){clearTimeout(requestID)};
 })();
 
 (function(){
@@ -39,7 +39,7 @@
 
 	document.title = document.title+": "+width+"×"+height;
 
-	const textareas = document.getElementsByTagName("textarea")
+	const textareas = document.getElementsByTagName("textarea");
 	if (!textareas) {
 		console.log("cannot find any <textarea> elements.");
 		return;
@@ -106,5 +106,5 @@
 })();
 
 (function(){
-	console.log("magic256: I am alive!")
+	console.log("magic256: I am alive!");
 })();
