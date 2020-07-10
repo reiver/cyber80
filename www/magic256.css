@@ -27,8 +27,14 @@ html,body {
 	}
 	canvas.magic256 {
 		height:90vh;
-	}		
+	}
 
+
+	textarea.magic256 {
+		min-width:5in;
+		max-width:10.5in;
+		height:90vh;
+	}
 
 
 	.tabbed {
