@@ -30,11 +30,13 @@ html,body {
 	}
 
 
-	textarea.magic256 {
+
+	textarea.magic256, .CodeMirror {
 		min-width:5in;
 		max-width:10.5in;
 		height:90vh;
 	}
+
 
 
 	.tabbed {

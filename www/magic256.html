@@ -4,6 +4,12 @@
 	<title>magic256</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="magic256.css" />
+
+	<link rel="stylesheet" href="codemirror/lib/codemirror.css" />
+	<link rel="stylesheet" href="codemirror/theme/solarized.css" />
+	<script src="codemirror/lib/codemirror.js"></script>
+	<script src="codemirror/addon/edit/matchbrackets.js"></script>
+	<script src="codemirror/mode/go.js"></script>
 </head>
 <body>
 	<div class="tabbed">
@@ -31,6 +37,30 @@
 			go.run(result.instance);
 		}
 		init();
+	})()
+	</script>
+	<script>
+	(function() {
+		const textareas = document.getElementsByTagName("textarea")
+		if (!textareas) {
+			return;
+		}
+
+		const textarea = textareas[0];
+		if (!textarea) {
+			return;
+		}
+
+		const editor = CodeMirror.fromTextArea(textarea, {
+			theme: "solarized dark",
+			lineNumbers: true,
+			styleActiveLine: true,
+			matchBrackets: true,
+			indentUnit: 4,
+			tabSize: 4,
+			indentWithTabs: true,
+			mode: "text/x-go"
+		});
 	})()
 	</script>
 </body>
