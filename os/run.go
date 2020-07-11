@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/reiver/cyber80/os/export"
 	"github.com/reiver/cyber80/os/webbed"
 
 	"github.com/containous/yaegi/interp"
@@ -40,7 +41,7 @@ func run(this js.Value, args []js.Value) interface{} {
 
 
 	log("run(): making packages available for import")
-	interpreter.Use(exports)
+	interpreter.Use(export.Symbols)
 	log("run(): packages made available for import")
 
 
