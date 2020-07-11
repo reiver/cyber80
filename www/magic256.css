@@ -38,6 +38,32 @@ html,body {
 
 
 
+	button.magic256 {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		z-index:100;
+	}
+	button.magic256 {
+		background-color: #00E436;
+	}
+	button.magic256:hover {
+		background-color: #008751;
+	}
+	button.magic256 {
+		display:block;
+		color:white;
+		border:none;
+		outline:none;
+		cursor:pointer;
+		padding:1em 1.5em;
+		transition:0.3s;
+		font-size:100%;
+		text-align:center;
+	}
+
+
+
 	.tabbed {
 		background-color:white;
 		float:left;

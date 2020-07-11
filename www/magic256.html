@@ -17,13 +17,24 @@
 			<input  id="tab-code" type="radio" name="tabs" checked="true" />
 			<label for="tab-code">Code</label>
 			<section>
-				<textarea></textarea>
+				<textarea>package main
+
+import (
+	"fmt"
+)
+
+func next() {
+
+	fmt.Println("Well, hello there.")
+
+}</textarea>
+				<button id="magic256-run" class="magic256">run</button>
 			</section>
 		</div>
 
 		<div>
-			<input  id="tab-run"type="radio" name="tabs" />
-			<label for="tab-run" >Run</label>
+			<input  id="tab-vc"type="radio" name="tabs" />
+			<label for="tab-vc" >Video</label>
 			<section><canvas></canvas></section>
 		</div>
 	</div>
@@ -60,6 +71,10 @@
 			tabSize: 4,
 			indentWithTabs: true,
 			mode: "text/x-go"
+		});
+
+		editor.on("change", ed => {
+			textarea.value = ed.getValue();
 		});
 	})()
 	</script>
