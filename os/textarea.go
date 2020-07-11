@@ -1,6 +1,8 @@
 package main
 
 import (
+	"github.com/reiver/cyber80/os/webbed"
+
 	"syscall/js"
 )
 
@@ -9,7 +11,7 @@ var (
 )
 
 func init() {
-	textareas := document.Call("getElementsByTagName", "textarea")
+	textareas := webbed.Document.Call("getElementsByTagName", "textarea")
 
 	if textareas.IsNull() {
 		msg := "ERROR: ‘textareas’ is null"
