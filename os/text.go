@@ -1,38 +1,14 @@
 package main
 
-const (
-	textWidth  = 32
-	textHeight = 32
+import (
+	"github.com/reiver/go-c80"
 )
 
-// Text represents a ‘textWidth’ × ‘textHeight’ = 32×32 matrix of characters.
-//
-// Conceptually, it is a left-handed coordinate system with (x,y)=(0,0) in the top-left corner,
-// and (x,y)=(31,31) in the bottom-right corner.
-//
-// Text[0] corresponds to (x,y)=(0,0).
-// Text[1] corresponds to (x,y)=(1,0).
-// Text[2] corresponds to (x,y)=(2,0).
-// ...
-// Text[29] corresponds to (x,y)=(29,0).
-// Text[30] corresponds to (x,y)=(30,0).
-// Text[31] corresponds to (x,y)=(31,0).
-// Text[32] corresponds to (x,y)=(0,1).
-// Text[33] corresponds to (x,y)=(0,2).
-// Text[34] corresponds to (x,y)=(0,3).
-// ...
-// Text[1021] corresponds to (x,y)=(29,31).
-// Text[1022] corresponds to (x,y)=(30,31).
-// Text[1023] corresponds to (x,y)=(31,31).
-//
-// Or, in other words:
-//
-// (x,y) corresponds to Text[y*32 + x]
-type Text [textWidth*textHeight]rune
-
-var text Text
-
 func init() {
+	textWidth := c80.Terminal.Width()
+
+	text := c80.Terminal.Runes()
+
 	text[0]  = 'W'
 	text[1]  = 'e'
 	text[2]  = 'l'
