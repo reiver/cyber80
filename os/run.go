@@ -14,7 +14,7 @@ import (
 // When that happens, run we get the Go code that the user wrote in the
 // textarea and try to interpret it (with a Go interpreter).
 //
-// The the interpretation is successful, it will look in the interpretted
+// If the interpretation is successful, it will look in the interpretted
 // code for a “main.next” func. If it can find it, it will set “window._next”
 // (in the web browser) to this it.
 //
