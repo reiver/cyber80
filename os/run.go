@@ -4,6 +4,7 @@ import (
 	"github.com/reiver/cyber80/os/export"
 	"github.com/reiver/cyber80/os/webbed"
 
+	"github.com/reiver/go-c80"
 	"github.com/containous/yaegi/interp"
 
 	"syscall/js"
@@ -87,6 +88,9 @@ func run(this js.Value, args []js.Value) interface{} {
 	{
 		fn := func(this js.Value, args []js.Value) interface{} {
 			next()
+
+			u8array := uint8Array.New(args[0])
+			_ = js.CopyBytesToJS(u8array, c80.Frame())
 
 			return nil
 		}

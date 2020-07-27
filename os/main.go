@@ -4,10 +4,7 @@ import (
 	"github.com/reiver/cyber80/os/webbed"
 
 	"github.com/reiver/go-c80"
-	"github.com/reiver/go-font8x8"
 
-	"image"
-	"image/draw"
 	"syscall/js"
 )
 
@@ -33,50 +30,9 @@ func main() {
 	log("Hello world!")
 
 
-	var next func(this js.Value, args []js.Value) interface{}
-	{
-		next = func(this js.Value, args []js.Value) interface{} {
-
-			for offset, character := range c80.Terminal.Runes() {
-				cx := offset % 32
-				cy := offset / 32
-
-				x := cx*8
-				y := cy*8
-
-				rect := image.Rectangle{
-					Min: image.Point{
-						X:x,
-						Y:y,
-					},
-//@TODO: Should these be hardcoded.
-					Max: image.Point{
-						X:x+8,
-						Y:y+8,
-					},
-				}
-
-				var src image.Image = font8x8.Rune(character)
-
-//				draw.Draw(c80.Image(), rect, &image.Uniform{color.RGBA{0, 0, 255, 255}}, image.ZP, draw.Src)
-				draw.Draw(c80.Image(), rect, src, image.ZP, draw.Src)
-			}
-
-
-//			for i:=0; i<len(memory); i++ {
-//				if 3 == i%4 {
-//					memory[i] = 255
-//				} else {
-//					memory[i] = byte(randomness.Intn(256))
-//				}
-//			}
-
-			u8array := uint8Array.New(args[0])
-			_ = js.CopyBytesToJS(u8array, c80.Frame())
-
-			return nil
-		}
-	}
+	var next func(this js.Value, args []js.Value) interface{} = nextfunc(func(){
+		c80.Draw(c80.Terminal)
+	})
 
 	// Here we are assigning this “next” function in this Go program to:
 	//
