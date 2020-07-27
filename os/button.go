@@ -20,16 +20,12 @@ func init() {
 	button = webbed.Document.Call("getElementById", buttonMagicID)
 
 	if button.IsNull() {
-		msg := "ERROR: ‘button’ is null"
-
-		log.Publish(msg)
-		panic(msg)
+		log.Panic("ERROR: ‘button’ is null")
+		return
 	}
 	if button.IsUndefined() {
-		msg := "ERROR: ‘button’ is undefined"
-
-		log.Publish(msg)
-		panic(msg)
+		log.Panic("ERROR: ‘button’ is undefined")
+		return
 	}
 
 	button.Call("addEventListener", "click", js.FuncOf(run))

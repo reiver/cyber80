@@ -36,8 +36,8 @@ func run(this js.Value, args []js.Value) interface{} {
 	log.Publish("run(): creating interpreter")
 	interpreter := interp.New(interp.Options{})
 	if nil == interpreter {
-		log.Publish("ERROR: Could not create interpreter.")
-		panic("ERROR: Could not create interpreter.")
+		log.Panic("ERROR: Could not create interpreter.")
+		return nil
 	}
 	log.Publish("run(): interpreter created")
 

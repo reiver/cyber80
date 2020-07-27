@@ -15,23 +15,17 @@ func init() {
 	textareas := webbed.Document.Call("getElementsByTagName", "textarea")
 
 	if textareas.IsNull() {
-		msg := "ERROR: ‘textareas’ is null"
-
-		log.Publish(msg)
-		panic(msg)
+		log.Panic("ERROR: ‘textareas’ is null")
+		return
 	}
 	if textareas.IsUndefined() {
-		msg := "ERROR: ‘textareas’ is undefined"
-
-		log.Publish(msg)
-		panic(msg)
+		log.Panic("ERROR: ‘textareas’ is undefined")
+		return
 	}
 
 	if 1 > textareas.Length() {
-		msg := "ERROR: no <textarea> found"
-
-		log.Publish(msg)
-		panic(msg)
+		log.Panic("ERROR: no <textarea> found")
+		return
 	}
 
 	textarea = textareas.Index(0)

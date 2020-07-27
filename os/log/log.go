@@ -5,6 +5,17 @@ import (
 	"strings"
 )
 
+func publish(a ...interface{}) string {
+
+	var builder strings.Builder
+	builder.WriteString(name)
+	builder.WriteString(": ")
+	builder.WriteString(fmt.Sprint(a...))
+	builder.WriteString("\n")
+
+	return builder.String()
+}
+
 // Publish outputs a log message.
 //
 // If magic256 is run inside a web browser then the log will appear in the web browser's developer console.
@@ -20,15 +31,15 @@ import (
 //
 //	magic256: Hello world!
 func Publish(a ...interface{}) {
-
-	var builder strings.Builder
-	builder.WriteString(name)
-	builder.WriteString(": ")
-	builder.WriteString(fmt.Sprint(a...))
-	builder.WriteString("\n")
-
-	fmt.Print(builder.String())
+	fmt.Print(publish(a...))
 }
+
+func Panic(a ...interface{}) {
+	s := publish(a...)
+	fmt.Print(s)
+	panic(s)
+}
+
 
 // Publishf outputs a formatted log message.
 //

@@ -14,15 +14,11 @@ func init() {
 	uint8Array = js.Global().Get("Uint8Array")
 
 	if uint8Array.IsNull() {
-		msg := "ERROR: ‘uint8Array’ is null"
-
-		log.Publish(msg)
-		panic(msg)
+		log.Panic("ERROR: ‘uint8Array’ is null")
+		return
 	}
 	if uint8Array.IsUndefined() {
-		msg := "ERROR: ‘uint8Array’ is undefined"
-
-		log.Publish(msg)
-		panic(msg)
+		log.Panic("ERROR: ‘uint8Array’ is undefined")
+		return
 	}
 }
