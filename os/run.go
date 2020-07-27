@@ -10,9 +10,9 @@ import (
 	"syscall/js"
 )
 
-// run is run when the user click the ‘run’ button in the web browser.
+// run() is run when the user click the ‘run’ button in the web browser.
 //
-// When that happens, run we get the Go code that the user wrote in the
+// When that happens, we get the Go code that the user wrote in the
 // textarea and try to interpret it (with a Go interpreter).
 //
 // If the interpretation is successful, it will look in the interpretted
@@ -58,7 +58,7 @@ func run(this js.Value, args []js.Value) interface{} {
 	_, err := interpreter.Eval(src)
 	if nil != err {
 		logf("ERROR: could not eval code: %s", err)
-		panic(err)
+		return nil
 	}
 	log("run(): code interpreted")
 
@@ -67,8 +67,8 @@ func run(this js.Value, args []js.Value) interface{} {
 	log("run(): looking for main.next func")
 	v, err := interpreter.Eval("main.next")
 	if nil != err {
-		logf("ERROR: could eval for main.next: %s", err)
-		panic(err)
+		logf("ERROR: could locate the main.next func: %s", err)
+		return nil
 	}
 	log("run(): main.next func found")
 
@@ -77,8 +77,8 @@ func run(this js.Value, args []js.Value) interface{} {
 	log("run(): lifting main.next func")
 	next, ok := v.Interface().(func())
 	if !ok {
-		log("ERROR: could not life main.next func")
-		panic("could not life main.next func")
+		log("ERROR: main.next in not a func")
+		return nil
 	}
 	log("run(): main.next func lifted")
 
