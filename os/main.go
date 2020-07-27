@@ -22,7 +22,6 @@ func main() {
 	// we provide some indication that this program has started successfully.
 	log.Publish("Hello world!")
 
-
 	// Here we are assigning this “next” function in this Go program to:
 	//
 	//	window._next
