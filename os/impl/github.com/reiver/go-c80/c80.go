@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	pkg = "c80"
+	pkg = "github.com/reiver/go-c80"
 )
 
 func init() {
