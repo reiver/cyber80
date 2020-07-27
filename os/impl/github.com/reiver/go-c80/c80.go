@@ -24,6 +24,7 @@ func init() {
         export.Symbols[pkg]["Map"]        = reflect.ValueOf(c80.Map)
         export.Symbols[pkg]["Pixel"]      = reflect.ValueOf(c80.Pixel)
         export.Symbols[pkg]["Relocate"]   = reflect.ValueOf(c80.Relocate)
+        export.Symbols[pkg]["Reveal"]     = reflect.ValueOf(c80.Reveal)
         export.Symbols[pkg]["Serialize"]  = reflect.ValueOf(c80.Serialize)
         export.Symbols[pkg]["SetSprite"]  = reflect.ValueOf(c80.SetSprite)
         export.Symbols[pkg]["Sprite"]     = reflect.ValueOf(c80.Sprite)

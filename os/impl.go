@@ -4,4 +4,5 @@ import (
 	_ "github.com/reiver/cyber80/os/impl/github.com/reiver/go-c80"
 
 	_ "github.com/reiver/cyber80/os/impl/fmt"
+	_ "github.com/reiver/cyber80/os/impl/math/rand"
 )
