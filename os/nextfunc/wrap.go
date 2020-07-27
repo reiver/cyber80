@@ -1,4 +1,4 @@
-package main
+package nextfunc
 
 import (
 	"github.com/reiver/go-c80"
@@ -6,11 +6,10 @@ import (
 	"syscall/js"
 )
 
-func nextfunc(fn func()) func(this js.Value, args []js.Value) interface{} {
+func wrap(fn func()) func(this js.Value, args []js.Value) interface{} {
 
 	next := func(this js.Value, args []js.Value) interface{} {
 
-//		c80.Draw(c80.Terminal)
 		fn()
 
 		u8array := uint8Array.New(args[0])

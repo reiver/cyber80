@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/reiver/cyber80/os/log"
 	"github.com/reiver/cyber80/os/webbed"
 
 	"syscall/js"
@@ -21,13 +22,13 @@ func init() {
 	if button.IsNull() {
 		msg := "ERROR: ‘button’ is null"
 
-		log(msg)
+		log.Publish(msg)
 		panic(msg)
 	}
 	if button.IsUndefined() {
 		msg := "ERROR: ‘button’ is undefined"
 
-		log(msg)
+		log.Publish(msg)
 		panic(msg)
 	}
 

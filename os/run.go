@@ -2,11 +2,13 @@ package main
 
 import (
 	"github.com/reiver/cyber80/os/export"
-	"github.com/reiver/cyber80/os/webbed"
+	"github.com/reiver/cyber80/os/log"
+	"github.com/reiver/cyber80/os/nextfunc"
 
 	"github.com/reiver/go-c80"
 	"github.com/containous/yaegi/interp"
 
+	"fmt"
 	"syscall/js"
 )
 
@@ -27,83 +29,88 @@ import (
 //
 // I.e., “main.next” will be the new animation loop function.
 func run(this js.Value, args []js.Value) interface{} {
-	log("run(): BEGIN")
+	log.Publish("run(): BEGIN")
 
 
 
-	log("run(): creating interpreter")
+	log.Publish("run(): creating interpreter")
 	interpreter := interp.New(interp.Options{})
 	if nil == interpreter {
-		log("ERROR: Could not create interpreter.")
+		log.Publish("ERROR: Could not create interpreter.")
 		panic("ERROR: Could not create interpreter.")
 	}
-	log("run(): interpreter created")
+	log.Publish("run(): interpreter created")
 
 
 
-	log("run(): making packages available for import")
+	log.Publish("run(): making packages available for import")
 	interpreter.Use(export.Symbols)
-	log("run(): packages made available for import")
+	log.Publish("run(): packages made available for import")
 
 
 
-	log("run(): getting code")
+	log.Publish("run(): getting code")
 	src := textarea.Get("value").String()
-	log("run(): code gotten")
-	log("run(): code:", src)
+	log.Publish("run(): code gotten")
+	log.Publish("run(): code:", src)
 
 
 
-	log("run(): interpreting code")
+	log.Publish("run(): interpreting code")
 	_, err := interpreter.Eval(src)
 	if nil != err {
-		logf("ERROR: could not eval code: %s", err)
+		msg := fmt.Sprintf("ERROR: could not eval code: %s", err)
+
+		log.Publish(msg)
+
+		c80.Terminal.Publish(msg)
+		nextfunc.Set(textnext)
+
 		return nil
 	}
-	log("run(): code interpreted")
+	log.Publish("run(): code interpreted")
 
 
 
-	log("run(): looking for main.next func")
+	log.Publish("run(): looking for main.next func")
 	v, err := interpreter.Eval("main.next")
 	if nil != err {
-		logf("ERROR: could locate the main.next func: %s", err)
+		msg := fmt.Sprintf("ERROR: could locate the main.next func: %s", err)
+
+		log.Publish(msg)
+
+		c80.Terminal.Publish(msg)
+		nextfunc.Set(textnext)
+
 		return nil
 	}
-	log("run(): main.next func found")
+	log.Publish("run(): main.next func found")
 
 
 
-	log("run(): lifting main.next func")
+	log.Publish("run(): lifting main.next func")
 	next, ok := v.Interface().(func())
 	if !ok {
-		log("ERROR: main.next in not a func")
+		msg := fmt.Sprintf("ERROR: main.next in not a func")
+
+		log.Publish(msg)
+
+		c80.Terminal.Publish(msg)
+		nextfunc.Set(textnext)
+
 		return nil
 	}
-	log("run(): main.next func lifted")
+	log.Publish("run(): main.next func lifted")
 
 
 
-	log("run(): setting main.next func as new magic function")
-	{
-		fn := func(this js.Value, args []js.Value) interface{} {
-			next()
-
-			u8array := uint8Array.New(args[0])
-			_ = js.CopyBytesToJS(u8array, c80.Frame())
-
-			return nil
-		}
-
-		jsFunc := js.FuncOf(fn)
-
-		webbed.Window.Set(magicFunctionName, jsFunc)
-	}
-	log("run(): main.next func set as new magic function")
+	log.Publish("run(): setting main.next func as new magic function")
+	nextfunc.Set(next)
+	log.Publish("run(): main.next func set as new magic function")
 
 
 
-	log("run(): END")
+	log.Publish("run(): END")
 
 	return nil
 }

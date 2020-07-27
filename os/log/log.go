@@ -1,11 +1,11 @@
-package main
+package log
 
 import (
 	"fmt"
 	"strings"
 )
 
-// log outputs a log message.
+// Publish outputs a log message.
 //
 // If magic256 is run inside a web browser then the log will appear in the web browser's developer console.
 // I.e., this is similar to JavaScript's console.log().
@@ -14,12 +14,12 @@ import (
 //
 // If the following is executed:
 //
-//	log("Hello world!")
+//	Publish("Hello world!")
 //
 // Then the output will be:
 //
 //	magic256: Hello world!
-func log(a ...interface{}) {
+func Publish(a ...interface{}) {
 
 	var builder strings.Builder
 	builder.WriteString(name)
@@ -30,7 +30,7 @@ func log(a ...interface{}) {
 	fmt.Print(builder.String())
 }
 
-// logf outputs a formatted log message.
+// Publishf outputs a formatted log message.
 //
 // If magic256 is run inside a web browser then the log will appear in the web browser's developer console.
 // I.e., this is similar to JavaScript's console.log().
@@ -41,12 +41,12 @@ func log(a ...interface{}) {
 //
 //	var name = "Joe Blow"
 //
-//	logf("Hello %s!", name)
+//	Publishf("Hello %s!", name)
 //
 // Then the output will be:
 //
 //	magic256: Hello Joe Blow!
-func logf(format string, a ...interface{}) {
+func Publishf(format string, a ...interface{}) {
 
 	var builder strings.Builder
 

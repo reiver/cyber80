@@ -1,4 +1,4 @@
-package main
+package nextfunc
 
 import (
 	"github.com/reiver/cyber80/os/log"
