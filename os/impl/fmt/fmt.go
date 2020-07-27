@@ -12,19 +12,11 @@ func init() {
 		export.Symbols["fmt"] = map[string]reflect.Value{}
 	}
 
-	export.Symbols["fmt"]["Print"]   = reflect.ValueOf(export_fmt_Print)
-	export.Symbols["fmt"]["Printf"]  = reflect.ValueOf(export_fmt_Printf)
-	export.Symbols["fmt"]["Println"] = reflect.ValueOf(export_fmt_Println)
-}
-
-func export_fmt_Print(a ...interface{}) (n int, err error) {
-	return fmt.Print(a...)
-}
-
-func export_fmt_Printf(format string, a ...interface{}) (n int, err error) {
-	return fmt.Printf(format, a...)
-}
-
-func export_fmt_Println(a ...interface{}) (n int, err error) {
-	return fmt.Println(a...)
+	export.Symbols["fmt"]["Errorf"]   = reflect.ValueOf(fmt.Errorf)
+	export.Symbols["fmt"]["Sprint"]   = reflect.ValueOf(fmt.Sprint)
+	export.Symbols["fmt"]["Sprintf"]  = reflect.ValueOf(fmt.Sprintf)
+	export.Symbols["fmt"]["Sprintln"] = reflect.ValueOf(fmt.Sprintln)
+	export.Symbols["fmt"]["Print"]    = reflect.ValueOf(fmt.Print)
+	export.Symbols["fmt"]["Printf"]   = reflect.ValueOf(fmt.Printf)
+	export.Symbols["fmt"]["Println"]  = reflect.ValueOf(fmt.Println)
 }
